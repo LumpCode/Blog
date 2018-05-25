@@ -1,2 +1,2 @@
 # Blog
-基于pringboot搭建的个人博客项目
+基于Springboot搭建的个人博客项目
