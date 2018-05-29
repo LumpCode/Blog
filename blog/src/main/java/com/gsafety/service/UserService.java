@@ -1,7 +1,7 @@
-package service;
+package com.gsafety.service;
 
-import dao.UserDao;
-import entity.User;
+import com.gsafety.dao.UserDao;
+import com.gsafety.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**

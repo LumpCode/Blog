@@ -1,4 +1,4 @@
-package entity;
+package com.gsafety.entity;
 
 import org.hibernate.annotations.GenericGenerator;
 

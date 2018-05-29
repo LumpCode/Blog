@@ -1,19 +1,17 @@
-package controller;
+package com.gsafety.controller;
 
-import aspect.WebSecurityConfig;
-import entity.User;
+import com.gsafety.aspect.WebSecurityConfig;
+import com.gsafety.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import service.UserService;
+import com.gsafety.service.UserService;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import java.text.SimpleDateFormat;
-import java.util.List;
 
 /**
  * @author liugan83@gmail.com
