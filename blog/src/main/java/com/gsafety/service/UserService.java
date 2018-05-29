@@ -3,6 +3,7 @@ package com.gsafety.service;
 import com.gsafety.dao.UserDao;
 import com.gsafety.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * @author liugan83@gmail.com
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @date 2018/5/25 0025 22:38
  * @Description 用户查找service层
  */
+@Service
 public class UserService {
 
 	@Autowired
