@@ -28,35 +28,39 @@ public class UserController {
 
 	private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
+
+
 	/**
 	 * 登陆模块
-	 * @return
+	 *
+	 * @return url
 	 */
 	@RequestMapping("/login")
-	public String login(){
+	public String login() {
 		return "admin/login";
 	}
 
 	/**
 	 * 登陆检查
-	 * @param response
-	 * @param user
-	 * @param model
-	 * @return
+	 *
+	 * @param response 响应
+	 * @param user 用户对象
+	 * @param model 模型驱动
+	 * @return 判断结果相应跳转的url
 	 */
-	@RequestMapping(value = "checkLogin" , method = RequestMethod.POST)
-	public String checkLogin(HttpServletResponse response, User user,Model model){
-		if (userService.login(user.getUsername(),user.getPassword())){
-			Cookie cookie = new Cookie(WebSecurityConfig.SESSION_KEY,user.toString());
+	@RequestMapping(value = "checkLogin", method = RequestMethod.POST)
+	public String checkLogin(HttpServletResponse response, User user, Model model) {
+		if (userService.login(user.getUsername(), user.getPassword())) {
+			Cookie cookie = new Cookie(WebSecurityConfig.SESSION_KEY, user.toString());
 			// 将cookies放入response
 			response.addCookie(cookie);
 			// 将请求参数封装到user属性中
-			model.addAttribute("user",user);
+			model.addAttribute("user", user);
 			System.out.println(cookie.getName());
 
 			return "redirect:/admin";
 		} else {
-			model.addAttribute("error","用户名或密码错误");
+			model.addAttribute("error", "用户名或密码错误");
 			System.out.println("failure");
 
 			return "admin/login";
