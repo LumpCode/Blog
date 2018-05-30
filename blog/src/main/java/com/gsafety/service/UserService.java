@@ -25,7 +25,7 @@ public class UserService {
 	 */
 	public boolean login(String username,String password){
 		User user = userDao.findByUsernameAndPassword(username,password);
-		if (user == null){
+		if (null == user){
 			return false;
 		}else {
 			return true;
