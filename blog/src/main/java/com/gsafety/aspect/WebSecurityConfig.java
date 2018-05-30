@@ -66,7 +66,8 @@ public class WebSecurityConfig extends WebMvcConfigurerAdapter {
 			String path = request.getServletPath();
 			String KEY_article = "article";
 			String KEY_login = "login";
-			if (KEY_article.contains(path) || KEY_login.contains(path)) {
+			// 这里要使用获取的路径去查找对应的字符,否则会报空指针异常
+			if (path.contains(KEY_article) || path.contains(KEY_login)) {
 				return true;
 			}
 
