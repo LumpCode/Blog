@@ -5,6 +5,7 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 
 /**
+ * 用户
  * @author liugan83@gmail.com
  * @version V1.0
  * @date 2018/5/25 0025 21:59
