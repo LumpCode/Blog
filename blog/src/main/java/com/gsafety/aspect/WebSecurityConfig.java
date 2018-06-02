@@ -70,14 +70,15 @@ public class WebSecurityConfig extends WebMvcConfigurerAdapter {
 			if (path.contains(KEY_article) || path.contains(KEY_login)) {
 				return true;
 			}
-
-			for (Cookie cookie : cookies) {
-				System.out.println(cookie.getName() + "拦截器中的cookies");
-				if (cookie.getName().equals(SESSION_KEY)) {
-					return true;
+			// 如果cookies不为空,则遍历
+			if(null != cookies){
+				for (Cookie cookie : cookies) {
+					System.out.println(cookie.getName() + "拦截器中的cookies");
+					if (cookie.getName().equals(SESSION_KEY)) {
+						return true;
+					}
 				}
 			}
-
 			response.sendRedirect("/blog/admin/login");
 
 			return false;
