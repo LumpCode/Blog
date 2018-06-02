@@ -6,6 +6,7 @@ import javax.persistence.*;
 
 /**
  * 文章实体
+ *
  * @author liugan83@gmail.com
  * @version V1.0
  * @date 2018/5/30 0030 11:31
@@ -34,9 +35,11 @@ public class Article {
 	private String content;
 
 	/**
-	 * 文章类别
+	 * 文章类别 多对一
+	 * CascadeType.MERGE指A类新增或者变化，会级联B对象（新增或者变化）
+	 * optional = true 外键为空时仍可以向表中添加数据
 	 */
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.MERGE, optional = true)
 	private Category category;
 
 	/**
@@ -51,8 +54,11 @@ public class Article {
 	@Column(name = "date", columnDefinition = "text")
 	private String date;
 
-	@Column(name = "userid", columnDefinition = "varchar(64)")
-	private Integer userId;
+	/**
+	 * 用户 多对一
+	 */
+	@ManyToOne(cascade = CascadeType.MERGE, optional = true)
+	private User user;
 
 	public String getId() {
 		return id;
@@ -102,11 +108,11 @@ public class Article {
 		this.date = date;
 	}
 
-	public Integer getUserId() {
-		return userId;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUserId(Integer userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
 }

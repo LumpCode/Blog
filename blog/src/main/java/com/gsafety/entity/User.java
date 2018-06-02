@@ -6,6 +6,7 @@ import javax.persistence.*;
 
 /**
  * 用户
+ *
  * @author liugan83@gmail.com
  * @version V1.0
  * @date 2018/5/25 0025 21:59
@@ -16,21 +17,33 @@ import javax.persistence.*;
 public class User {
 	@Id
 	@GeneratedValue(generator = "uuid")
-	@GenericGenerator(name = "uuid",strategy = "uuid")
-	@Column(name = "id",columnDefinition = "varchar(64) binary")
+	@GenericGenerator(name = "uuid", strategy = "uuid")
+	@Column(name = "id", columnDefinition = "varchar(64) binary")
 	private String id;
 
 	/**
 	 * nullable=false是这个字段在保存时必需有值，不能还是null值就调用save去保存入库
 	 */
-	@Column(name = "username",nullable = false,length = 32)
+	@Column(name = "username", nullable = false, length = 32)
 	private String username;
 
-	@Column(name = "useremail",nullable = false,length = 32)
+	@Column(name = "useremail", nullable = false, length = 32)
 	private String useremail;
 
-	@Column(name = "password",nullable = false,length = 32)
+	@Column(name = "password", nullable = false, length = 32)
 	private String password;
+
+	/** 0 表示未激活*/
+	@Column(name = "state", nullable = false, length = 32)
+	private Integer state = 0;
+
+	public Integer getState() {
+		return state;
+	}
+
+	public void setState(Integer state) {
+		this.state = state;
+	}
 
 	public String getId() {
 		return id;
