@@ -64,23 +64,26 @@ public class WebSecurityConfig extends WebMvcConfigurerAdapter {
 			Cookie[] cookies = request.getCookies();
 			// 获取能够与“url-pattern”中匹配的路径，注意是完全匹配的部分，*的部分不包括
 			String path = request.getServletPath();
+			System.out.println(path);
 			String KEY_article = "article";
 			String KEY_login = "login";
 			// 这里要使用获取的路径去查找对应的字符,否则会报空指针异常
 			if (path.contains(KEY_article) || path.contains(KEY_login)) {
+				System.out.println("拦截key");
 				return true;
 			}
 			// 如果cookies不为空,则遍历
-			if(null != cookies){
+			if (null != cookies) {
 				for (Cookie cookie : cookies) {
 					System.out.println(cookie.getName() + "拦截器中的cookies");
 					if (cookie.getName().equals(SESSION_KEY)) {
+						System.out.println("cookies");
 						return true;
 					}
 				}
 			}
 			response.sendRedirect("/blog/admin/login");
-
+			System.out.println("拦截成功");
 			return false;
 		}
 
