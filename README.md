@@ -27,3 +27,7 @@
 * 流程设计图
 
 ![游客3.png](https://i.loli.net/2018/06/04/5b14922f144d2.png)
+
+* 总体功能图
+
+![总体功能设计.png](https://i.loli.net/2018/06/04/5b14bba13d114.png)
